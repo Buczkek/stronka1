@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(90deg, #2000aa 0%, #770091 100%);
+    height: 60vh;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.form {
+    width: 50%;
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.form input {
+    width: 100%;
+    height: 100%;
+    color: #efff40;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.form label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid white;
+}
+
+.form label::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #efff40;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-niewiem{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form input:focus + .ladne-do-wpisania .content-niewiem,
+.form input:valid + .ladne-do-wpisania .content-niewiem{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #efff40;
+}
+
+.form input:focus + .ladne-do-wpisania::after,
+.form input:valid + .ladne-do-wpisania::after {
+    transform: translateX(0%);
+}
