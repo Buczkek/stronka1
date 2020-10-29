@@ -6,6 +6,7 @@ const tekscik = document.querySelector('#tekscik')
 
 //event listeners
 pierwszyGuziczek.addEventListener("click", petChubercik)
+inpucik.addEventListener("keydown", function() {nacisnij(event, pierwszyGuziczek)})
 
 //variables
 var glupieWiadomosci = ["Dupa",
@@ -36,5 +37,12 @@ function petChubercik(event) {
     gifek.setAttribute('class', "chubercikthegif")
     gifek.setAttribute('src', "/img/petchubercik.gif")
     gifDiv.appendChild(gifek)
+}
+
+function nacisnij(event, butt){
+    console.log(event.keyCode)
+    if (event.keyCode === 13){
+        butt.click()
+    }
 }
 
