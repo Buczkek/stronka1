@@ -40,7 +40,6 @@ function petChubercik(event) {
 }
 
 function nacisnij(event, butt){
-    console.log(event.keyCode)
     if (event.keyCode === 13){
         butt.click()
     }
