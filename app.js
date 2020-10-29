@@ -3,6 +3,7 @@ const inpucik = document.querySelector('input[name="niewiem"]')
 const gifDiv = document.querySelector('.gif-div')
 const pierwszyGuziczek = document.querySelector('#pierwszy-guziczek')
 const tekscik = document.querySelector('#tekscik')
+const gife = document.querySelector('.smieszne-gife')
 
 //event listeners
 pierwszyGuziczek.addEventListener("click", petChubercik)
@@ -14,6 +15,11 @@ var glupieWiadomosci = ["Dupa",
                         "Nie tym razem!",
                         "Aj karamba!!!",
 ]
+var smieszki = ["petchubercik",
+                "duda",
+                "zubr",
+                "ugabuga",
+]
 //functions
 
 function choose(choices) {
@@ -22,21 +28,26 @@ function choose(choices) {
 }
 
 function petChubercik(event) {
-    if (inpucik.value.toLowerCase() != "chubercik"){
+    var wpisane = inpucik.value.toLowerCase()
+    if (wpisane == "chubercik"){
+        wpisane = "petchubercik"
+    }
+    var sciezka = "/img/" + wpisane + ".gif"
+
+    if ( ! (smieszki.includes(wpisane))){
         tekscik.innerHTML = choose(glupieWiadomosci)
-        if (gifDiv.children.length>1){
-            gifDiv.removeChild(document.querySelector('.chubercikthegif'))
-        }
+        gife.style.display = 'none'
         return
     }
-    if (gifDiv.children.length>1){
+    gife.style.display = ''
+
+    if (gife.getAttribute('src') == sciezka){
         return
+    } else {
+        gife.setAttribute('src', sciezka)
     }
+
     tekscik.innerHTML = ""
-    const gifek = document.createElement('img')
-    gifek.setAttribute('class', "chubercikthegif")
-    gifek.setAttribute('src', "/img/petchubercik.gif")
-    gifDiv.appendChild(gifek)
 }
 
 function nacisnij(event, butt){
@@ -44,4 +55,3 @@ function nacisnij(event, butt){
         butt.click()
     }
 }
-

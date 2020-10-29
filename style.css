@@ -103,8 +103,9 @@ body {
     /* border: 1px black solid; */
 }
 
-.chubercikthegif {
+.smieszne-gife {
+    width: 122px;
+    height: 122px;
     position: absolute;
     transform: translateY(-100%);
-    z-index: 2;
 }
